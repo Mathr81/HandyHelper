@@ -1,0 +1,27 @@
+{
+  "name": "converter-bot",
+  "version": "1.0.0",
+  "description": "A file converter discord bot",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mathr81/converter-bot.git"
+  },
+  "author": "Mathr81",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mathr81/converter-bot/issues"
+  },
+  "homepage": "https://github.com/Mathr81/converter-bot#readme",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.3.1",
+    "nodemon": "^3.0.2",
+    "sharp": "^0.33.1"
+  }
+}
