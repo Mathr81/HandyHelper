@@ -23,7 +23,13 @@ module.exports = {
 
     async run(interaction) {
 
+        const supportedFormats = ["heic", "heif", "avif", "jpeg", "jpg", "jpe", "tile", "dz", "png", "raw", "tiff", "tif", "webp", "gif", "jp2", "jpx", "j2k", "j2c", "jxl"];
         await interaction.deferReply({ ephemeral: true });
+
+        if(!supportedFormats.includes(interaction.options.getAttachment("file").name.split(".")[1])) {
+            interaction.followUp({ content: "This format is not supported", ephemeral: true });
+            return;
+        }
 
         const fileToConvert = interaction.options.getAttachment("file");
 
@@ -35,7 +41,7 @@ module.exports = {
         .then(response => {
         // Convertir en WebP
         const convertedFile = sharp(Buffer.from(response.data))
-            .resize(interaction.options.getString("wide"), interaction.options.getString("high"));
+            .resize(parseInt(interaction.options.getString("wide")), parseInt(interaction.options.getString("high")));
 
         interaction.followUp({ content: "Here is your image in " + interaction.options.getString("wide") + " by " + interaction.options.getString("wide") + " format", files: [convertedFile], ephemeral: true });
         })

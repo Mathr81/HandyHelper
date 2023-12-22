@@ -19,7 +19,14 @@ module.exports = {
 
     async run(interaction) {
 
-        interaction.deferReply({ ephemeral: true });
+        const supportedFormats = ["heic", "heif", "avif", "jpeg", "jpg", "jpe", "tile", "dz", "png", "raw", "tiff", "tif", "webp", "gif", "jp2", "jpx", "j2k", "j2c", "jxl"];
+
+        await interaction.deferReply({ ephemeral: true });
+
+        if(!supportedFormats.includes(interaction.options.getAttachment("file").name.split(".")[1]) || !supportedFormats.includes(interaction.options.getString("format"))) {
+            interaction.followUp({ content: "This format is not supported", ephemeral: true });
+            return;
+        }
 
         const fileToConvert = interaction.options.getAttachment("file");
 
