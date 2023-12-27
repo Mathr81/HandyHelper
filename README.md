@@ -1,2 +1,2 @@
-# converter-bot
-A file converter discord bot
+# HandyHelper
+Probably the most useful discord bot of the world !
