@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
-const qrcode = require('qrcode')
-const fs = require('fs')
+const qrcode = require('qrcode');
+const fs = require('fs');
 
 module.exports = {
     data: new SlashCommandBuilder()

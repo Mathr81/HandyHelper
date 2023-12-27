@@ -36,7 +36,6 @@ module.exports = {
         responseType: 'arraybuffer'
         })
         .then(response => {
-        // Convertir en WebP
         const convertedFile = sharp(Buffer.from(response.data))
             .toFormat(interaction.options.getString("format"));
 
